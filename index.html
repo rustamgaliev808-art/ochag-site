@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Очаг — зона отдыха</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Зона отдыха «Очаг» под Астаной: Охотничий дом с бильярдом и сауной, банкетный зал до 70 гостей, костёр под берёзами. Круглосуточно, круглый год.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+/* Сюжет: вечер в Очаге. Живой костёр → фильм 30 сек → территория → Охотничий дом → зал + Новый год → цены → бронь → дорога.
+   Одна тёмная «костровая» гамма. */
+:root{
+  color-scheme:dark;
+  --bg:#130F0C; --surface:#1D1712; --raise:#261E17;
+  --fg:#F3E8DA; --muted:#B8A796; --line:#3A2E24;
+  --ember:#E8743A; --flame:#F7B64C; --wa:#2FAE62;
+  --display:"Yeseva One",Georgia,"Times New Roman",serif;
+  --body:"Golos Text","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.08}
+h2{font-size:clamp(32px,5vw,56px)}
+h3{font-size:26px}
+p{margin:0}
+a{color:inherit}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--flame);font-weight:600}
+.chapter{font-family:var(--display);color:var(--ember);font-size:15px;letter-spacing:.06em}
+section{padding-block:96px}
+.sec-head{display:grid;gap:12px;margin-bottom:40px;max-width:680px}
+.sec-head p{color:var(--muted);font-size:17px}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(19,15,12,.74);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(243,232,218,.06)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{font-family:var(--display);font-size:24px;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo svg{width:24px;height:24px}
+.nav{display:flex;gap:22px;font-size:14px}
+.nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--fg)}
+@media (max-width:900px){.nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 24px;font:600 15px/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--flame);outline-offset:3px}
+.btn-fire{background:linear-gradient(180deg,var(--flame),var(--ember));color:#2A1408;box-shadow:0 8px 30px -8px rgba(232,116,58,.7)}
+.btn-fire:hover{box-shadow:0 10px 40px -6px rgba(247,182,76,.85);transform:translateY(-2px)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-ghost{background:rgba(243,232,218,.06);color:var(--fg);box-shadow:inset 0 0 0 1.5px rgba(243,232,218,.28)}
+.btn-ghost:hover{background:rgba(243,232,218,.12)}
+.btn-sm{padding:10px 18px;font-size:14px}
+
+/* HERO — живой костёр */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:clamp(620px,92svh,940px);padding-block:0;overflow:hidden;isolation:isolate}
+.hero-media{position:relative;grid-column:2;grid-row:1;overflow:hidden;background:#2a1a0e}
+.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:42% 55%}
+.hero-media video{opacity:0;transition:opacity 1.2s ease}
+.hero-media video.on{opacity:1}
+.hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--bg) 0,rgba(19,15,12,0) 30%),linear-gradient(0deg,var(--bg) 0,rgba(19,15,12,0) 22%)}
+#embers{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{grid-column:1;grid-row:1;align-self:center;width:100%;max-width:640px;margin-left:auto;margin-right:0;display:grid;gap:26px;padding-block:80px 96px;position:relative;z-index:1}
+.hero h1{font-size:clamp(72px,11vw,170px);line-height:.9;text-shadow:0 0 60px rgba(232,116,58,.45);animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{50%{text-shadow:0 0 90px rgba(247,182,76,.65)}}
+.hero .tag{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--flame)}
+.hero .lead{font-size:clamp(17px,1.6vw,21px);max-width:38ch;opacity:.9}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.facts{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:14px;color:var(--muted)}
+.facts b{font-family:var(--display);font-weight:400;font-size:28px;display:block;color:var(--fg);line-height:1.1}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-media{grid-column:1;grid-row:1;height:68svh;min-height:420px}
+  .hero-media::after{background:linear-gradient(0deg,var(--bg) 0,rgba(19,15,12,0) 32%),linear-gradient(180deg,rgba(19,15,12,.45),transparent 18%)}
+  .hero .wrap{grid-column:1;grid-row:2;margin:-70px 0 0;max-width:none;padding-block:0 60px}
+}
+
+/* Marquee */
+.marquee{padding-block:26px;border-block:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.marquee .track{display:flex;gap:48px;width:max-content;animation:slide 40s linear infinite;font-family:var(--display);font-size:clamp(24px,3.4vw,38px);white-space:nowrap}
+.marquee span{display:inline-flex;align-items:center;gap:48px}
+.marquee span::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ember);box-shadow:0 0 14px var(--ember)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* Film */
+.film{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:64px;align-items:center}
+.phone{position:relative;width:min(340px,80vw);aspect-ratio:9/16;border-radius:34px;overflow:hidden;background:#000;border:8px solid #0b0806;box-shadow:0 0 0 1px var(--line),0 50px 100px -40px rgba(232,116,58,.55);justify-self:center}
+.phone video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.toc{display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.toc a{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:18px;transition:color .2s,padding .3s}
+.toc a:hover{color:var(--flame);padding-left:8px}
+.toc a span{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+@media (max-width:860px){.film{grid-template-columns:1fr;gap:40px}}
+
+/* Territory */
+.terr{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:260px 260px;gap:12px}
+.terr figure{margin:0;position:relative;overflow:hidden;border-radius:16px;background:var(--surface)}
+.terr img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.terr figure:hover img{transform:scale(1.05)}
+.terr figcaption{position:absolute;left:12px;bottom:12px;font-size:13px;background:rgba(19,15,12,.72);padding:5px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.terr .big{grid-row:span 2}
+@media (max-width:760px){.terr{grid-template-columns:1fr 1fr;grid-template-rows:300px 180px 180px}.terr .big{grid-column:span 2;grid-row:auto}}
+.amen{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.amen div{background:var(--surface);padding:18px 20px;display:grid;gap:4px}
+.amen b{font-weight:600}
+.amen small{color:var(--muted);font-size:13px}
+
+/* House showcase */
+.house{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:start}
+@media (max-width:900px){.house{grid-template-columns:1fr;gap:32px}}
+.viewer{display:grid;grid-template-columns:minmax(0,1fr) 92px;gap:12px}
+.stage{position:relative;aspect-ratio:3/4;max-height:78svh;border-radius:20px;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+.stage img,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage img{transition:opacity .45s ease}
+.stage .label{position:absolute;left:14px;bottom:14px;background:rgba(19,15,12,.75);padding:6px 14px;border-radius:999px;font-size:14px;backdrop-filter:blur(6px)}
+.thumbs{display:grid;gap:10px;align-content:start}
+.thumbs button{padding:0;border:2px solid transparent;border-radius:12px;overflow:hidden;background:var(--surface);cursor:pointer;aspect-ratio:3/4;transition:border-color .2s,transform .2s}
+.thumbs button:hover{transform:translateY(-2px)}
+.thumbs button[aria-pressed="true"]{border-color:var(--flame)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.thumbs .play{display:grid;place-items:center;background:linear-gradient(180deg,var(--flame),var(--ember));color:#2A1408;font:600 12px var(--body);text-align:center;padding:6px}
+.thumbs .play i{display:block;width:0;height:0;margin:0 auto 6px;border-left:14px solid #2A1408;border-top:9px solid transparent;border-bottom:9px solid transparent}
+@media (max-width:540px){.viewer{grid-template-columns:1fr}.thumbs{grid-template-columns:repeat(6,1fr)}.thumbs button{aspect-ratio:1}.thumbs .play{font-size:0}.thumbs .play i{margin:0 auto}}
+.specs{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--muted)}
+.chip.strong{border-color:rgba(232,116,58,.6);color:var(--flame);font-weight:600}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;margin:0;padding:0;list-style:none}
+.feat li{display:grid;gap:2px}
+.feat b{font-weight:600;font-size:17px}
+.feat span{color:var(--muted);font-size:14px}
+@media (max-width:480px){.feat{grid-template-columns:1fr}}
+.wood{margin-top:64px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center;border:1px solid var(--line);border-radius:22px;padding:20px;background:var(--surface)}
+.wood-pics{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:200px 200px;gap:10px}
+.wood-pics figure{margin:0;position:relative;overflow:hidden;border-radius:14px;background:var(--raise)}
+.wood-pics img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.wood-pics figure:hover img{transform:scale(1.05)}
+.wood-pics .wp-main{grid-row:span 2}
+.wood-pics .wp-main img{object-position:center 25%}
+.wood-pics figcaption{position:absolute;left:10px;bottom:10px;font-size:12px;background:rgba(19,15,12,.72);padding:4px 11px;border-radius:999px}
+.wood.white{margin-top:16px;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+.wood-pics.two{grid-template-columns:1fr 1fr;grid-template-rows:410px}
+.wood.white .wood-txt{padding:8px 0 8px 12px}
+@media (max-width:860px){.wood.white{grid-template-columns:1fr}.wood.white .wood-pics{order:-1}.wood-pics.two{grid-template-rows:320px}.wood.white .wood-txt{padding:4px}}
+.wood-txt{display:grid;gap:16px;padding:8px 12px 8px 0}
+.wood-txt p{color:var(--muted)}
+@media (max-width:860px){.wood{grid-template-columns:1fr;padding:14px}.wood-pics{grid-template-rows:180px 180px}.wood-txt{padding:4px}}
+.others{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.other{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--surface);display:grid;gap:12px}
+.other p{color:var(--muted);font-size:15px}
+
+/* Hall */
+.pano{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.pano-track{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;cursor:grab;touch-action:pan-x pan-y}
+.pano-track::-webkit-scrollbar{display:none}
+.pano-track img{display:block;height:clamp(300px,42vw,520px);width:auto;max-width:none;user-select:none;-webkit-user-drag:none}
+.pano .hint{position:absolute;right:14px;bottom:14px;background:rgba(19,15,12,.75);padding:6px 14px;border-radius:999px;font-size:13px;color:var(--fg);pointer-events:none;backdrop-filter:blur(6px)}
+.hall-grid{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center}
+.hall-grid .phone{width:min(300px,78vw)}
+@media (max-width:860px){.hall-grid{grid-template-columns:1fr}}
+.play-btn{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(0deg,rgba(19,15,12,.55),rgba(19,15,12,.05));border:0;cursor:pointer;color:var(--fg);font:600 15px var(--body)}
+.play-btn span{display:grid;justify-items:center;gap:12px}
+.play-btn i{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,var(--flame),var(--ember));box-shadow:0 0 40px -6px var(--ember)}
+.play-btn i::before{content:"";margin-left:6px;border-left:22px solid #2A1408;border-top:14px solid transparent;border-bottom:14px solid transparent}
+
+.ny{position:relative;overflow:hidden;padding-block:0;min-height:520px;display:grid;align-items:center;isolation:isolate;margin-top:96px}
+.ny .bg{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;z-index:-2}
+.ny::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(19,15,12,.94) 0,rgba(19,15,12,.7) 45%,rgba(19,15,12,.2)),linear-gradient(0deg,var(--bg),transparent 25%),linear-gradient(180deg,var(--bg),transparent 25%)}
+.ny .wrap{width:100%;display:grid;gap:18px;padding-block:96px}
+.ny .yr{font-family:var(--display);font-size:clamp(84px,14vw,170px);line-height:.85;background:linear-gradient(180deg,#FFE3A6,var(--flame) 45%,var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 30px rgba(247,182,76,.35))}
+.ny p{opacity:.9;max-width:46ch;font-size:17px}
+@media (max-width:760px){.ny::after{background:linear-gradient(0deg,rgba(19,15,12,.95) 0,rgba(19,15,12,.82) 60%,rgba(19,15,12,.5)),linear-gradient(180deg,var(--bg),transparent 20%)}}
+
+/* Prices */
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.price{border-radius:var(--r);padding:30px;display:grid;gap:10px;align-content:start;border:1px solid var(--line);background:var(--surface)}
+.price.hot{background:radial-gradient(120% 120% at 100% 100%,rgba(232,116,58,.35),transparent 55%),var(--raise);border-color:rgba(232,116,58,.5)}
+.price .num{font-family:var(--display);font-size:clamp(36px,4.6vw,50px);font-variant-numeric:tabular-nums;line-height:1.1}
+.price .num small{font-family:var(--body);font-size:.4em;color:var(--muted)}
+.price p{color:var(--muted)}
+.extra{margin-top:20px;display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;border:1px dashed rgba(232,116,58,.5);border-radius:var(--r);padding:22px 26px}
+.extra div{display:grid;gap:6px;max-width:640px}
+.notes{margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px 30px}
+.notes div{display:grid;gap:4px;align-content:start}
+.notes b{font-weight:600}
+.notes span{color:var(--muted);font-size:15px}
+
+/* Booking */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;counter-reset:s}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding:24px 24px 24px 84px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);counter-increment:s;min-height:110px}
+.step::before{content:counter(s);position:absolute;left:22px;top:20px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:22px;color:#2A1408;background:linear-gradient(180deg,var(--flame),var(--ember));box-shadow:0 0 24px -4px var(--ember)}
+.step b{display:block;font-size:17px;margin-bottom:4px}
+.step span{color:var(--muted);font-size:15px}
+.book-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
+@media (max-width:900px){.book-grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+form .full{grid-column:1/-1}
+@media (max-width:540px){form{grid-template-columns:minmax(0,1fr)}.card{padding:20px}}
+label{display:grid;min-width:0;gap:6px;font-size:14px;font-weight:500;color:var(--muted)}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{border-color:var(--ember)}
+textarea{resize:vertical;min-height:84px}
+input[type=date]{-webkit-appearance:none;appearance:none;min-height:46px}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;padding:0;margin:0}
+.seg label{display:inline-flex;cursor:pointer;border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:14px;background:var(--bg);color:var(--fg)}
+.seg input:checked+label{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.seg input:focus-visible+label{outline:3px solid var(--flame);outline-offset:2px}
+.preview{grid-column:1/-1;font-size:14px;color:var(--muted);background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;white-space:pre-wrap;min-width:0;overflow-wrap:anywhere}
+.contacts{display:grid;gap:14px}
+.tel{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
+.tel .n{font-family:var(--display);font-size:clamp(20px,2.6vw,24px);font-variant-numeric:tabular-nums;user-select:all}
+.tel small{display:block;color:var(--muted);font-size:13px}
+.copy{border:1px solid var(--line);background:var(--raise);color:var(--fg);border-radius:999px;padding:8px 14px;font:500 13px var(--body);cursor:pointer;flex:none}
+.copy:hover{border-color:var(--ember)}
+
+/* Where */
+.where{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+@media (max-width:900px){.where{grid-template-columns:1fr}}
+.mapcard{position:relative;border-radius:var(--r);overflow:hidden;min-height:340px;display:grid;align-content:end;padding:28px;gap:6px;isolation:isolate}
+.mapcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.mapcard::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(19,15,12,.92) 10%,rgba(19,15,12,.2) 70%)}
+.addr{font-family:var(--display);font-size:clamp(28px,3.6vw,38px);line-height:1.1}
+.where-info{display:grid;gap:22px;align-content:center}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.rating{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.rating b{font-family:var(--display);font-size:46px;font-weight:400;color:var(--flame);line-height:1}
+.rating span{color:var(--muted);font-size:14px}
+
+.faq{display:grid;gap:10px;max-width:800px}
+details{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:0 20px}
+details[open]{border-color:rgba(232,116,58,.45)}
+summary{cursor:pointer;padding:18px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:22px;line-height:1;color:var(--flame);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 18px;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding-block:40px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:center}
+footer .logo{color:var(--fg)}
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:8;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+@media (min-width:901px){.fab{display:none}}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
+
+@media (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline: view()){
+    .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 26%}
+    @keyframes rise{from{opacity:.3;transform:translateY(46px) scale(.985)}to{opacity:1;transform:none}}
+    .terr figure{animation:lift linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+    @keyframes lift{from{opacity:.35;transform:perspective(900px) rotateX(12deg) translateY(36px)}to{opacity:1;transform:none}}
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .marquee .track,.hero h1{animation:none}
+}
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Очаг, наверх">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE3A6"/><stop offset=".5" stop-color="#F7B64C"/><stop offset="1" stop-color="#E8743A"/></linearGradient></defs><path fill="url(#lg)" d="M12 1.5c1.2 4.3 6 6.2 6 11.6A6 6 0 0 1 12 19a6 6 0 0 1-6-5.9c0-2.8 1.5-4.3 2.7-5.6.3 2 1.3 3 2.3 3.3C10.6 8 10.6 4.8 12 1.5Z"/><path fill="#E8743A" d="M3 21.5 21 18.5V21L3 24z" opacity=".8"/></svg>
+      Очаг
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#territory">Территория</a>
+      <a href="#hunt">Охотничий дом</a>
+      <a href="#hall">Зал</a>
+      <a href="#prices">Цены</a>
+      <a href="#where">Как доехать</a>
+    </nav>
+    <a class="btn btn-fire btn-sm" href="#book">Забронировать</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-media" id="hero-media">
+      <img src="img/fire-hero.jpg" alt="Костёр в каменном круге на территории «Очага»">
+      <video id="hero-video" muted loop playsinline preload="auto" aria-hidden="true"><source src="img/fire-hero.mp4" type="video/mp4"></video>
+      <canvas id="embers" aria-hidden="true"></canvas>
+    </div>
+    <div class="wrap">
+      <span class="tag">Место, которое объединяет</span>
+      <h1>Очаг</h1>
+      <p class="lead">Зона отдыха под Астаной. Охотничий дом с бильярдом и сауной, банкетный зал с камином, костёр под берёзами. Круглосуточно и круглый год.</p>
+      <div class="ctas">
+        <a class="btn btn-fire" href="#book">Выбрать дату</a>
+        <a class="btn btn-ghost" href="#film">Смотреть фильм · 30 сек</a>
+      </div>
+      <div class="facts">
+        <div><b>24/7</b>круглый год</div>
+        <div><b>3 дома</b>до 16 гостей</div>
+        <div><b>до 70</b>гостей в зале</div>
+        <div><b>4,6 ★</b>в 2ГИС</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-label="На территории: сауна, бильярд, камин, казан, мангалы, костёр, беседки, топчаны, тимбилдинг, детская горка">
+    <div class="track" aria-hidden="true">
+      <span>Сауна</span><span>Бильярд</span><span>Камин</span><span>Мангалы</span><span>Казан</span><span>Место у костра</span><span>Беседки</span><span>Топчаны</span><span>Тимбилдинг</span><span>Детская горка</span>
+      <span>Сауна</span><span>Бильярд</span><span>Камин</span><span>Мангалы</span><span>Казан</span><span>Место у костра</span><span>Беседки</span><span>Топчаны</span><span>Тимбилдинг</span><span>Детская горка</span>
+    </div>
+  </div>
+
+  <section id="film">
+    <div class="wrap film">
+      <div style="display:grid;gap:32px;min-width:0">
+        <div class="sec-head reveal" style="margin:0">
+          <span class="eyebrow">Фильм</span>
+          <h2>Вечер в Очаге за 30 секунд</h2>
+          <p>Короткая прогулка от берёзовой аллеи до костра. Дальше на странице всё то же самое, только подробно.</p>
+        </div>
+        <ul class="toc reveal">
+          <li><a href="#territory">Территория и аллея<span>01</span></a></li>
+          <li><a href="#hunt">Охотничий дом<span>02</span></a></li>
+          <li><a href="#hall">Банкетный зал<span>03</span></a></li>
+          <li><a href="#book">Бронь<span>04</span></a></li>
+        </ul>
+      </div>
+      <div class="phone reveal">
+        <video id="film-video" muted loop playsinline preload="none" poster="img/film-poster.jpg" aria-label="Фильм о зоне отдыха «Очаг»"><source src="img/film.mp4" type="video/mp4"></video>
+      </div>
+    </div>
+  </section>
+
+  <section id="territory" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="chapter">01</span>
+        <h2>Сначала воздух</h2>
+        <p>Берёзовая аллея с фонарями, сосны, беседки и каменный круг для костра. Мангалы, уголь и дрова уже на месте, с собой можно всё.</p>
+      </div>
+      <div class="terr">
+        <figure class="big"><img src="img/birch.jpg" alt="Берёзовая аллея с фонарями и скамейкой" loading="lazy"><figcaption>Берёзовая аллея</figcaption></figure>
+        <figure><img src="img/yard.jpg" alt="Беседки, мангал и костёр на поляне" loading="lazy"><figcaption>Поляна с беседками</figcaption></figure>
+        <figure><img src="img/trees.jpg" alt="Костёр среди сосен на закате" loading="lazy"><figcaption>Закат у костра</figcaption></figure>
+        <figure style="grid-column:span 2"><img src="img/hero.jpg" alt="Костёр перед кирпичным домом" loading="lazy" style="object-position:center 70%"><figcaption>Место у костра</figcaption></figure>
+      </div>
+      <div class="amen reveal" aria-label="На территории">
+        <div><b>Беседки и топчаны</b><small>посидеть на воздухе</small></div>
+        <div><b>Место у костра</b><small>брёвна-скамейки, каменный круг</small></div>
+        <div><b>Тимбилдинг</b><small>отдельная поляна</small></div>
+        <div><b>Детская горка</b><small>для самых младших</small></div>
+        <div><b>Мангал и казан</b><small>у каждого дома свой двор</small></div>
+        <div><b>Уголь и дрова</b><small>есть на месте</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hunt" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="chapter">02</span>
+        <h2>Охотничий дом</h2>
+        <p>Большая гостиная под деревянным сводом: бильярд, камин с трофеями, длинный стол на всю компанию. Есть сауна.</p>
+      </div>
+      <div class="house">
+        <div class="viewer reveal">
+          <div class="stage" id="stage">
+            <img id="stage-img" src="img/hh-living.jpg" alt="Гостиная Охотничьего дома: камин, кожаные диваны, охотничьи трофеи под сводом">
+            <span class="label" id="stage-label">Гостиная с камином</span>
+          </div>
+          <div class="thumbs" role="group" aria-label="Фото Охотничьего дома">
+            <button type="button" aria-pressed="true" data-src="img/hh-living.jpg" data-label="Гостиная с камином" data-alt="Гостиная Охотничьего дома: камин, кожаные диваны, охотничьи трофеи под сводом"><img src="img/hh-living.jpg" alt="" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-src="img/hh-billiard.jpg" data-label="Бильярдная" data-alt="Бильярдный стол под зелёными лампами"><img src="img/hh-billiard.jpg" alt="" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-src="img/hh-bed.jpg" data-label="Спальня" data-alt="Спальня с бревенчатыми стенами и люстрой"><img src="img/hh-bed.jpg" alt="" loading="lazy"></button>
+            <button type="button" aria-pressed="false" class="play" data-video="img/hunt-tour.mp4" data-label="Видеотур · 11 сек" aria-label="Смотреть видеотур по Охотничьему дому"><span><i></i>Видеотур</span></button>
+          </div>
+        </div>
+        <div style="display:grid;gap:28px;min-width:0">
+          <div class="specs reveal"><span class="chip strong">до 16 гостей</span><span class="chip">6–8 спальных мест</span><span class="chip">с ночёвкой</span></div>
+          <ul class="feat reveal">
+            <li><b>Бильярд</b><span>полноразмерный стол в гостиной</span></li>
+            <li><b>Камин</b><span>кожаные кресла и диваны</span></li>
+            <li><b>Сауна</b><span>за доплату</span></li>
+            <li><b>Свой двор</b><span>мангал и большой казан</span></li>
+            <li><b>Большой стол</b><span>вся компания за одним столом</span></li>
+            <li><b>Спальни</b><span>с ночёвкой до 8 человек</span></li>
+          </ul>
+          <div class="reveal" style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn btn-fire" href="#book" data-pick="Охотничий дом">Забронировать дом</a></div>
+        </div>
+      </div>
+      <div class="wood reveal">
+        <div class="wood-pics">
+          <figure class="wp-main"><img src="img/w-dining.jpg" alt="Столовая Деревянного дома: большой стол, стулья с мягкими спинками, деревянные балки" loading="lazy"><figcaption>Столовая</figcaption></figure>
+          <figure><img src="img/w-bed1.jpg" alt="Спальня с аркой из камня и двуспальной кроватью" loading="lazy"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/w-bed2.jpg" alt="Вторая спальня с картиной над кроватью" loading="lazy"><figcaption>Спальня</figcaption></figure>
+        </div>
+        <div class="wood-txt">
+          <h3>Деревянный дом</h3>
+          <p>Тихий дом для компании поменьше: столовая под деревянными балками с большим столом и мягким диваном, уютные спальни с каменными арками.</p>
+          <div class="specs"><span class="chip strong">до 16 гостей</span><span class="chip">4–6 спальных мест</span><span class="chip">мангал и казан</span></div>
+          <div><a class="btn btn-ghost" href="#book" data-pick="Деревянный дом">Забронировать дом</a></div>
+        </div>
+      </div>
+      <div class="wood white reveal">
+        <div class="wood-txt">
+          <h3>Белый дом</h3>
+          <p>Светлый дом для большой компании с ночёвкой: бревенчатые спальни, просторный холл в вагонке, своя сауна.</p>
+          <div class="specs"><span class="chip strong">до 16 гостей</span><span class="chip">6–8 спальных мест</span><span class="chip">сауна · за доплату</span><span class="chip">мангал и казан</span></div>
+          <div><a class="btn btn-ghost" href="#book" data-pick="Белый дом">Забронировать дом</a></div>
+        </div>
+        <div class="wood-pics two">
+          <figure><img src="img/wh-bed.jpg" alt="Спальня Белого дома с бревенчатыми стенами и большой кроватью" loading="lazy"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/wh-hall.jpg" alt="Холл Белого дома, отделанный вагонкой" loading="lazy"><figcaption>Холл</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall" style="padding-top:0;padding-bottom:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="chapter">03</span>
+        <h2>Банкетный зал до 70 гостей</h2>
+        <p>Кирпичные стены, открытый камин посреди зала, гирлянды под решётчатым потолком и большие окна в сад.</p>
+      </div>
+      <div class="pano reveal">
+        <div class="pano-track" id="pano" tabindex="0" aria-label="Панорама банкетного зала, можно прокрутить в сторону"><img src="img/hall-pano.jpg" alt="Панорама банкетного зала: столы вдоль кирпичных стен, камин справа"></div>
+        <span class="hint" id="pano-hint" hidden>← потяните →</span>
+      </div>
+      <div class="hall-grid">
+        <ul class="feat reveal">
+          <li><b>Камин в центре</b><span>с открытым огнём</span></li>
+          <li><b>Длинные столы</b><span>под большие компании</span></li>
+          <li><b>Телевизоры и колонки</b><span>для музыки и поздравлений</span></li>
+          <li><b>Повар и официанты</b><span>кухня, ведущий, музыка, украшение · за доплату</span></li>
+          <li><b>Свадьбы и юбилеи</b><span>дни рождения, выпускные</span></li>
+          <li><b>Корпоративы</b><span>и тимбилдинг на поляне</span></li>
+        </ul>
+        <div class="phone reveal">
+          <video id="hall-video" playsinline preload="none" poster="img/hall-window.jpg" aria-label="Видеотур по банкетному залу"><source src="img/hall-tour.mp4" type="video/mp4"></video>
+          <button class="play-btn" type="button" data-for="hall-video" aria-label="Смотреть видеотур по залу"><span><i></i>Видеотур · 13 сек</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="ny" aria-label="Новогодние корпоративы">
+      <video class="bg" autoplay muted loop playsinline preload="metadata" poster="img/hall.jpg" aria-hidden="true" data-ambient><source src="img/hall-loop.mp4" type="video/mp4"></video>
+      <div class="wrap reveal">
+        <span class="eyebrow">Новогодние корпоративы за городом</span>
+        <span class="yr">2027</span>
+        <p>Зал с камином и гирляндами, праздничный банкет, Охотничий дом с сауной для тех, кто остаётся до утра. Декабрьские пятницы и субботы разбирают первыми.</p>
+        <div><a class="btn btn-fire" href="#book" data-pick="Банкетный зал">Забронировать зал</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Цены</span>
+        <h2>Аренда или всё под ключ</h2>
+        <p>Цена зависит от дня недели, количества гостей и формата. Точную сумму под ваш праздник скажем по телефону.</p>
+      </div>
+      <div class="prices">
+        <div class="price reveal"><span class="eyebrow" style="color:var(--muted)">Дом · будни</span><div class="num">70 000 <small>₸</small></div><p>За один дом. Цена одинаковая для Охотничьего, Белого и Деревянного.</p></div>
+        <div class="price hot reveal"><span class="eyebrow">Дом · выходные</span><div class="num">120–150 000 <small>₸</small></div><p>За один дом в выходные и праздники. Лучше бронировать заранее.</p></div>
+        <div class="price reveal"><span class="eyebrow" style="color:var(--muted)">Банкетный зал</span><div class="num">100–150 000 <small>₸</small></div><p>Аренда зала до 70 гостей.</p></div>
+      </div>
+      <div class="extra reveal">
+        <div><span class="eyebrow">Под ключ, за доплату</span><p>Кухня и повар, официанты, ведущий, музыка, украшение зала. Скажите, что нужно, и посчитаем.</p></div>
+        <a class="btn btn-ghost" href="#book">Обсудить праздник</a>
+      </div>
+      <div class="notes reveal">
+        <div><b>Предоплата 30%</b><span>Закрепляет за вами дату.</span></div>
+        <div><b>С собой можно всё</b><span>Своя еда, напитки, музыка.</span></div>
+        <div><b>Сауна</b><span>Оплачивается отдельно.</span></div>
+        <div><b>Круглосуточно</b><span>Заезд в удобное время, по договорённости.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="chapter">04</span><h2>Три шага до вечера у костра</h2></div>
+      <div class="steps">
+        <div class="step reveal"><b>Выберите место и дату</b><span>Дом, зал, беседку или всю территорию.</span></div>
+        <div class="step reveal"><b>Напишите в WhatsApp</b><span>Форма ниже соберёт сообщение за вас.</span></div>
+        <div class="step reveal"><b>Внесите предоплату 30%</b><span>После неё дата закреплена за вами.</span></div>
+      </div>
+      <div class="book-grid">
+        <div class="card reveal" style="min-width:0">
+          <form id="f" novalidate>
+            <label>Ваше имя<input id="f-name" name="name" autocomplete="name" placeholder="Айгерим"></label>
+            <label>Дата заезда<input id="f-date" name="date" type="date"></label>
+            <label>Гостей<input id="f-guests" name="guests" type="number" min="1" max="200" inputmode="numeric" placeholder="12"></label>
+            <label>Место
+              <select id="f-place" name="place">
+                <option>Пока не знаю, подскажите</option>
+                <option>Охотничий дом</option>
+                <option>Белый дом</option>
+                <option>Деревянный дом</option>
+                <option>Банкетный зал</option>
+                <option>Беседка / топчан</option>
+                <option>Вся территория</option>
+              </select>
+            </label>
+            <div class="full" style="display:grid;gap:6px">
+              <span style="font-size:14px;font-weight:500;color:var(--muted)">Формат</span>
+              <div class="seg" role="radiogroup" aria-label="Формат">
+                <input type="radio" name="fmt" id="fmt-rent" value="Аренда" checked><label for="fmt-rent">Аренда</label>
+                <input type="radio" name="fmt" id="fmt-key" value="Под ключ"><label for="fmt-key">Под ключ</label>
+              </div>
+            </div>
+            <label class="full">Повод и пожелания<textarea id="f-note" name="note" placeholder="День рождения, нужна сауна к 18:00"></textarea></label>
+            <div class="preview full" id="pv" aria-live="polite"></div>
+            <div class="full" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+              <a class="btn btn-wa" id="wa" href="https://wa.me/77029081509" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+                Отправить в WhatsApp
+              </a>
+              <button type="button" class="copy" id="copy-msg">Скопировать текст</button>
+            </div>
+          </form>
+        </div>
+        <aside class="contacts reveal" aria-label="Телефоны">
+          <span class="eyebrow">Позвонить</span>
+          <div class="tel"><div><span class="n">+7 702 908 15 09</span><small>звонки и WhatsApp Business</small></div><button class="copy" data-copy="+77029081509">Копировать</button></div>
+          <div class="tel"><div><span class="n">+7 701 388 17 16</span><small>бронирование</small></div><button class="copy" data-copy="+77013881716">Копировать</button></div>
+          <div class="tel"><div><span class="n">+7 702 651 88 34</span><small>звонки</small></div><button class="copy" data-copy="+77026518834">Копировать</button></div>
+          <p style="color:var(--muted);font-size:15px">Отвечаем круглосуточно. Не дозвонились? Напишите в WhatsApp, перезвоним.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="where" style="padding-top:0">
+    <div class="wrap where">
+      <div class="mapcard reveal">
+        <img src="img/birch.jpg" alt="Берёзовая аллея на территории" loading="lazy">
+        <span class="eyebrow">Как доехать</span>
+        <span class="addr">Шоссе Алаш, 138/1</span>
+        <span style="color:var(--muted);font-size:14px">Астана, район Байконыр</span>
+      </div>
+      <div class="where-info reveal">
+        <div class="sec-head" style="margin:0">
+          <span class="eyebrow">Мы на карте</span>
+          <h2>Рядом с городом, но уже за ним</h2>
+          <p>Постройте маршрут в удобном приложении. В 2ГИС есть ещё фото гостей и отзывы.</p>
+        </div>
+        <div class="rating"><b>4,6</b><span>★ средняя оценка в 2ГИС · 44 оценки · 13 отзывов</span></div>
+        <div class="links">
+          <a class="btn btn-fire" href="https://2gis.kz/astana/geo/70000001032545258/71.586943,51.248381" target="_blank" rel="noopener">2ГИС</a>
+          <a class="btn btn-ghost" href="https://yandex.kz/maps/?rtext=~51.248381%2C71.586943&rtt=auto" target="_blank" rel="noopener">Яндекс Карты</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=51.248381,71.586943" target="_blank" rel="noopener">Google Maps</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/zona_otdiha_astana/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">Частые вопросы</span><h2>Перед поездкой</h2></div>
+      <div class="faq reveal">
+        <details><summary>Можно привезти свою еду и напитки?</summary><p>Да, с собой можно всё. Мангалы, уголь и дрова есть на месте.</p></details>
+        <details><summary>Можно с ночёвкой?</summary><p>Да. В Охотничьем и Белом доме по 6–8 спальных мест, в Деревянном 4–6. Работаем круглосуточно.</p></details>
+        <details><summary>Работаете зимой?</summary><p>Да, в любой сезон. Зимой особенно хороши сауна и место у костра.</p></details>
+        <details><summary>Как забронировать дату?</summary><p>Напишите в WhatsApp или позвоните. Предоплата закрепляет дату за вами.</p></details>
+        <details><summary>Подойдёт для корпоратива?</summary><p>Да. Банкетный зал вмещает до 70 гостей, есть поляна для тимбилдинга. Можно заказать мероприятие под ключ.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">Очаг</span>
+    <span>Шоссе Алаш, 138/1 · Астана · круглосуточно</span>
+    <span>+7 702 908 15 09 · +7 701 388 17 16 · +7 702 651 88 34</span>
+  </div>
+</footer>
+
+<a class="btn btn-fire fab" href="#book">Бронь</a>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const io=(el,fn,opts)=>{ if("IntersectionObserver" in window) new IntersectionObserver(es=>es.forEach(e=>fn(e.isIntersecting)),opts||{}).observe(el); };
+
+  /* WhatsApp */
+  const WA="77029081509";
+  function fmtDate(v){ if(!v) return ""; const [y,m,d]=v.split("-"); return d&&m&&y?`${d}.${m}.${y}`:v; }
+  function build(){
+    const fmt=(document.querySelector('input[name="fmt"]:checked')||{}).value||"Аренда";
+    const L=["Здравствуйте! Хочу забронировать в «Очаге»."];
+    if($("f-name").value.trim()) L.push("Имя: "+$("f-name").value.trim());
+    if($("f-date").value) L.push("Дата: "+fmtDate($("f-date").value));
+    if($("f-guests").value) L.push("Гостей: "+$("f-guests").value);
+    L.push("Место: "+$("f-place").value); L.push("Формат: "+fmt);
+    if($("f-note").value.trim()) L.push("Пожелания: "+$("f-note").value.trim());
+    return L.join("\n");
+  }
+  function update(){ const m=build(); $("pv").textContent=m; $("wa").href="https://wa.me/"+WA+"?text="+encodeURIComponent(m); }
+  ["f-name","f-date","f-guests","f-place","f-note"].forEach(id=>$(id).addEventListener("input",update));
+  document.querySelectorAll('input[name="fmt"]').forEach(r=>r.addEventListener("change",update));
+  $("f").addEventListener("submit",e=>e.preventDefault());
+  document.querySelectorAll("[data-pick]").forEach(a=>a.addEventListener("click",()=>{ $("f-place").value=a.dataset.pick; update(); }));
+  update();
+  let tt; function toast(s){ const el=$("toast"); el.textContent=s; el.hidden=false; clearTimeout(tt); tt=setTimeout(()=>el.hidden=true,1800); }
+  async function copy(text,ok){ try{ await navigator.clipboard.writeText(text); toast(ok); }catch(e){ toast("Выделите текст и скопируйте вручную"); } }
+  document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b.dataset.copy,"Номер скопирован")));
+  $("copy-msg").addEventListener("click",()=>copy(build(),"Текст заявки скопирован"));
+
+  /* Фильм: играет, когда виден */
+  const film=$("film-video");
+  if(!reduce){ io(film,v=>{ if(v){ film.preload="auto"; film.play().catch(()=>{}); } else film.pause(); },{threshold:.35}); }
+  else { film.controls=true; }
+
+  /* Фоновое видео зала */
+  document.querySelectorAll("video[data-ambient]").forEach(v=>{ if(reduce){ v.removeAttribute("autoplay"); v.pause(); } else io(v,on=>on?v.play().catch(()=>{}):v.pause()); });
+
+  /* Видеотур зала */
+  document.querySelectorAll(".play-btn").forEach(b=>{
+    const v=$(b.dataset.for);
+    b.addEventListener("click",()=>{ b.hidden=true; v.controls=true; v.play().catch(()=>{ b.hidden=false; }); });
+    v.addEventListener("ended",()=>{ b.hidden=false; v.controls=false; v.load(); });
+  });
+
+  /* Охотничий дом: просмотр фото и видеотур */
+  const stage=$("stage"), simg=$("stage-img"), slab=$("stage-label");
+  let tourV=null;
+  document.querySelectorAll(".thumbs button").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll(".thumbs button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+    slab.textContent=b.dataset.label;
+    if(b.dataset.video){
+      if(!tourV){ tourV=document.createElement("video"); tourV.src=b.dataset.video; tourV.playsInline=true; tourV.muted=true; tourV.controls=true; tourV.poster="img/hunt-tour.jpg"; tourV.setAttribute("aria-label","Видеотур по Охотничьему дому"); stage.insertBefore(tourV,slab); }
+      tourV.hidden=false; tourV.currentTime=0; tourV.play().catch(()=>{});
+    } else {
+      if(tourV){ tourV.pause(); tourV.hidden=true; }
+      simg.style.opacity=0;
+      setTimeout(()=>{ simg.src=b.dataset.src; simg.alt=b.dataset.alt; simg.onload=()=>simg.style.opacity=1; },180);
+    }
+  }));
+
+  /* Панорама зала: перетаскивание + медленный сам-проход */
+  const pano=$("pano"), hint=$("pano-hint");
+  let drag=null, auto=!reduce, dir=1, pv=false;
+  function canPan(){ return pano.scrollWidth>pano.clientWidth+4; }
+  function setHint(){ hint.hidden=!canPan(); }
+  addEventListener("resize",setHint); pano.querySelector("img").addEventListener("load",setHint); setHint();
+  pano.addEventListener("pointerdown",e=>{ if(e.pointerType!=="mouse") { auto=false; return; } auto=false; drag={x:e.clientX,s:pano.scrollLeft}; pano.setPointerCapture(e.pointerId); pano.style.cursor="grabbing"; });
+  pano.addEventListener("pointermove",e=>{ if(drag) pano.scrollLeft=drag.s-(e.clientX-drag.x); });
+  pano.addEventListener("pointerup",()=>{ drag=null; pano.style.cursor=""; });
+  pano.addEventListener("wheel",()=>auto=false,{passive:true});
+  io(pano,v=>{ pv=v; if(v&&auto) requestAnimationFrame(drift); });
+  function drift(){
+    if(!auto||!pv||!canPan()) return;
+    const max=pano.scrollWidth-pano.clientWidth;
+    pano.scrollLeft+=dir*.6;
+    if(pano.scrollLeft>=max-1) dir=-1; else if(pano.scrollLeft<=0) dir=1;
+    requestAnimationFrame(drift);
+  }
+
+  /* Первый экран: живой костёр + искры */
+  const media=$("hero-media"), vid=$("hero-video"), cv=$("embers"), ctx=cv.getContext("2d");
+  const SRC=3/4, FIRE={x:.42,y:.5};
+  let W=0,H=0,fx=0,fy=0,k=1,parts=[],on=true;
+  function place(){
+    W=media.clientWidth;H=media.clientHeight; const d=Math.min(devicePixelRatio||1,2);
+    cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+    const s=Math.max(W/SRC,H); const vw=SRC*s, vh=s; const ox=(W-vw)*.42, oy=(H-vh)*.55;
+    fx=ox+FIRE.x*vw; fy=oy+FIRE.y*vh; k=vh/900;
+    parts=Array.from({length:55},()=>spawn(true));
+  }
+  function spawn(any){ return {x:fx+(Math.random()-.5)*120*k, y:any?fy-Math.random()*fy:fy-Math.random()*60*k, vx:(Math.random()-.5)*.6, vy:.8+Math.random()*1.8, r:.7+Math.random()*1.8, life:1, decay:.004+Math.random()*.009, ph:Math.random()*6}; }
+  function draw(){
+    ctx.clearRect(0,0,W,H); ctx.shadowColor="rgba(255,140,50,.9)"; ctx.shadowBlur=8;
+    for(const p of parts){
+      p.y-=p.vy; p.ph+=.06; p.x+=p.vx+Math.sin(p.ph)*.5; p.life-=p.decay;
+      if(p.life<=0||p.y<-10) Object.assign(p,spawn(false));
+      ctx.fillStyle=`rgba(255,${170+((1-p.life)*50|0)},80,${Math.max(0,p.life)*(.5+.5*Math.sin(p.ph*3))})`;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+    }
+    if(!reduce&&on) requestAnimationFrame(draw);
+  }
+  place(); if(!reduce) draw();
+  let rt; addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(place,150);});
+  io(media,v=>{ const was=on; on=v; if(on&&!was&&!reduce) requestAnimationFrame(draw); if(vid.isConnected){ v?vid.play().catch(()=>{}):vid.pause(); } });
+  if(reduce) vid.remove();
+  else { vid.addEventListener("playing",()=>vid.classList.add("on"),{once:true}); vid.addEventListener("error",()=>vid.remove(),true); vid.play().catch(()=>{}); }
+})();
+</script>
+
+</body>
+</html>
