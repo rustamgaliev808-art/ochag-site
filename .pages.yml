@@ -1,0 +1,52 @@
+media:
+  input: img/uploads
+  output: img/uploads
+  extensions: [jpg, jpeg, png, webp]
+content:
+  - name: site
+    label: "Сайт «Очаг»: цены, телефоны, фото"
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: prices
+        label: "Цены"
+        type: object
+        fields:
+          - { name: price_weekday, label: "Дом в будни, ₸ (например: 70 000)", type: string }
+          - { name: price_weekday_note, label: "Пояснение под ценой в будни", type: text }
+          - { name: price_weekend, label: "Дом в выходные, ₸ (например: 120–150 000)", type: string }
+          - { name: price_weekend_note, label: "Пояснение под ценой в выходные", type: text }
+          - { name: price_hall, label: "Банкетный зал, ₸", type: string }
+          - { name: price_hall_note, label: "Пояснение под ценой зала", type: text }
+          - { name: turnkey, label: "«Под ключ» — что входит", type: text }
+      - name: contacts
+        label: "Телефоны"
+        type: object
+        fields:
+          - { name: phone1, label: "Телефон 1 (звонки и WhatsApp Business)", type: string }
+          - { name: phone2, label: "Телефон 2 (бронирование)", type: string }
+          - { name: phone3, label: "Телефон 3 (звонки)", type: string }
+          - { name: whatsapp, label: "Номер WhatsApp для кнопки «Написать»", type: string }
+      - name: texts
+        label: "Тексты"
+        type: object
+        fields:
+          - { name: ny_text, label: "Блок «Новогодние корпоративы»", type: text }
+      - name: photos
+        label: "Фото"
+        type: object
+        fields:
+          - { name: hero_fire, label: "Главное фото (костёр, первый экран)", type: image }
+          - { name: hh_living, label: "Охотничий дом — гостиная", type: image }
+          - { name: hh_billiard, label: "Охотничий дом — бильярдная", type: image }
+          - { name: hh_bed, label: "Охотничий дом — спальня", type: image }
+          - { name: w_dining, label: "Деревянный дом — столовая", type: image }
+          - { name: w_bed1, label: "Деревянный дом — спальня 1", type: image }
+          - { name: w_bed2, label: "Деревянный дом — спальня 2", type: image }
+          - { name: wh_bed, label: "Белый дом — спальня", type: image }
+          - { name: wh_hall, label: "Белый дом — холл", type: image }
+          - { name: t_birch, label: "Территория — берёзовая аллея", type: image }
+          - { name: t_yard, label: "Территория — поляна с беседками", type: image }
+          - { name: t_trees, label: "Территория — закат у костра", type: image }
+          - { name: t_hero, label: "Территория — место у костра", type: image }

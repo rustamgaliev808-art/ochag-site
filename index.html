@@ -299,7 +299,7 @@ footer .logo{color:var(--fg)}
 <main id="top">
   <section class="hero">
     <div class="hero-media" id="hero-media">
-      <img src="img/fire-hero.jpg" alt="Костёр в каменном круге на территории «Очага»">
+      <img src="img/fire-hero.jpg" data-cms-img="hero_fire" alt="Костёр в каменном круге на территории «Очага»">
       <video id="hero-video" muted loop playsinline preload="auto" aria-hidden="true"><source src="img/fire-hero.mp4" type="video/mp4"></video>
       <canvas id="embers" aria-hidden="true"></canvas>
     </div>
@@ -356,10 +356,10 @@ footer .logo{color:var(--fg)}
         <p>Берёзовая аллея с фонарями, сосны, беседки и каменный круг для костра. Мангалы, уголь и дрова уже на месте, с собой можно всё.</p>
       </div>
       <div class="terr">
-        <figure class="big"><img src="img/birch.jpg" alt="Берёзовая аллея с фонарями и скамейкой" loading="lazy"><figcaption>Берёзовая аллея</figcaption></figure>
-        <figure><img src="img/yard.jpg" alt="Беседки, мангал и костёр на поляне" loading="lazy"><figcaption>Поляна с беседками</figcaption></figure>
-        <figure><img src="img/trees.jpg" alt="Костёр среди сосен на закате" loading="lazy"><figcaption>Закат у костра</figcaption></figure>
-        <figure style="grid-column:span 2"><img src="img/hero.jpg" alt="Костёр перед кирпичным домом" loading="lazy" style="object-position:center 70%"><figcaption>Место у костра</figcaption></figure>
+        <figure class="big"><img src="img/birch.jpg" data-cms-img="t_birch" alt="Берёзовая аллея с фонарями и скамейкой" loading="lazy"><figcaption>Берёзовая аллея</figcaption></figure>
+        <figure><img src="img/yard.jpg" data-cms-img="t_yard" alt="Беседки, мангал и костёр на поляне" loading="lazy"><figcaption>Поляна с беседками</figcaption></figure>
+        <figure><img src="img/trees.jpg" data-cms-img="t_trees" alt="Костёр среди сосен на закате" loading="lazy"><figcaption>Закат у костра</figcaption></figure>
+        <figure style="grid-column:span 2"><img src="img/hero.jpg" data-cms-img="t_hero" alt="Костёр перед кирпичным домом" loading="lazy" style="object-position:center 70%"><figcaption>Место у костра</figcaption></figure>
       </div>
       <div class="amen reveal" aria-label="На территории">
         <div><b>Беседки и топчаны</b><small>посидеть на воздухе</small></div>
@@ -382,13 +382,13 @@ footer .logo{color:var(--fg)}
       <div class="house">
         <div class="viewer reveal">
           <div class="stage" id="stage">
-            <img id="stage-img" src="img/hh-living.jpg" alt="Гостиная Охотничьего дома: камин, кожаные диваны, охотничьи трофеи под сводом">
+            <img id="stage-img" src="img/hh-living.jpg" data-cms-img="hh_living" alt="Гостиная Охотничьего дома: камин, кожаные диваны, охотничьи трофеи под сводом">
             <span class="label" id="stage-label">Гостиная с камином</span>
           </div>
           <div class="thumbs" role="group" aria-label="Фото Охотничьего дома">
-            <button type="button" aria-pressed="true" data-src="img/hh-living.jpg" data-label="Гостиная с камином" data-alt="Гостиная Охотничьего дома: камин, кожаные диваны, охотничьи трофеи под сводом"><img src="img/hh-living.jpg" alt="" loading="lazy"></button>
-            <button type="button" aria-pressed="false" data-src="img/hh-billiard.jpg" data-label="Бильярдная" data-alt="Бильярдный стол под зелёными лампами"><img src="img/hh-billiard.jpg" alt="" loading="lazy"></button>
-            <button type="button" aria-pressed="false" data-src="img/hh-bed.jpg" data-label="Спальня" data-alt="Спальня с бревенчатыми стенами и люстрой"><img src="img/hh-bed.jpg" alt="" loading="lazy"></button>
+            <button type="button" aria-pressed="true" data-src="img/hh-living.jpg" data-cms-src="hh_living" data-label="Гостиная с камином" data-alt="Гостиная Охотничьего дома: камин, кожаные диваны, охотничьи трофеи под сводом"><img src="img/hh-living.jpg" data-cms-img="hh_living" alt="" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-src="img/hh-billiard.jpg" data-cms-src="hh_billiard" data-label="Бильярдная" data-alt="Бильярдный стол под зелёными лампами"><img src="img/hh-billiard.jpg" data-cms-img="hh_billiard" alt="" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-src="img/hh-bed.jpg" data-cms-src="hh_bed" data-label="Спальня" data-alt="Спальня с бревенчатыми стенами и люстрой"><img src="img/hh-bed.jpg" data-cms-img="hh_bed" alt="" loading="lazy"></button>
             <button type="button" aria-pressed="false" class="play" data-video="img/hunt-tour.mp4" data-label="Видеотур · 11 сек" aria-label="Смотреть видеотур по Охотничьему дому"><span><i></i>Видеотур</span></button>
           </div>
         </div>
@@ -407,9 +407,9 @@ footer .logo{color:var(--fg)}
       </div>
       <div class="wood reveal">
         <div class="wood-pics">
-          <figure class="wp-main"><img src="img/w-dining.jpg" alt="Столовая Деревянного дома: большой стол, стулья с мягкими спинками, деревянные балки" loading="lazy"><figcaption>Столовая</figcaption></figure>
-          <figure><img src="img/w-bed1.jpg" alt="Спальня с аркой из камня и двуспальной кроватью" loading="lazy"><figcaption>Спальня</figcaption></figure>
-          <figure><img src="img/w-bed2.jpg" alt="Вторая спальня с картиной над кроватью" loading="lazy"><figcaption>Спальня</figcaption></figure>
+          <figure class="wp-main"><img src="img/w-dining.jpg" data-cms-img="w_dining" alt="Столовая Деревянного дома: большой стол, стулья с мягкими спинками, деревянные балки" loading="lazy"><figcaption>Столовая</figcaption></figure>
+          <figure><img src="img/w-bed1.jpg" data-cms-img="w_bed1" alt="Спальня с аркой из камня и двуспальной кроватью" loading="lazy"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/w-bed2.jpg" data-cms-img="w_bed2" alt="Вторая спальня с картиной над кроватью" loading="lazy"><figcaption>Спальня</figcaption></figure>
         </div>
         <div class="wood-txt">
           <h3>Деревянный дом</h3>
@@ -426,8 +426,8 @@ footer .logo{color:var(--fg)}
           <div><a class="btn btn-ghost" href="#book" data-pick="Белый дом">Забронировать дом</a></div>
         </div>
         <div class="wood-pics two">
-          <figure><img src="img/wh-bed.jpg" alt="Спальня Белого дома с бревенчатыми стенами и большой кроватью" loading="lazy"><figcaption>Спальня</figcaption></figure>
-          <figure><img src="img/wh-hall.jpg" alt="Холл Белого дома, отделанный вагонкой" loading="lazy"><figcaption>Холл</figcaption></figure>
+          <figure><img src="img/wh-bed.jpg" data-cms-img="wh_bed" alt="Спальня Белого дома с бревенчатыми стенами и большой кроватью" loading="lazy"><figcaption>Спальня</figcaption></figure>
+          <figure><img src="img/wh-hall.jpg" data-cms-img="wh_hall" alt="Холл Белого дома, отделанный вагонкой" loading="lazy"><figcaption>Холл</figcaption></figure>
         </div>
       </div>
     </div>
@@ -464,7 +464,7 @@ footer .logo{color:var(--fg)}
       <div class="wrap reveal">
         <span class="eyebrow">Новогодние корпоративы за городом</span>
         <span class="yr">2027</span>
-        <p>Зал с камином и гирляндами, праздничный банкет, Охотничий дом с сауной для тех, кто остаётся до утра. Декабрьские пятницы и субботы разбирают первыми.</p>
+        <p data-cms="ny_text">Зал с камином и гирляндами, праздничный банкет, Охотничий дом с сауной для тех, кто остаётся до утра. Декабрьские пятницы и субботы разбирают первыми.</p>
         <div><a class="btn btn-fire" href="#book" data-pick="Банкетный зал">Забронировать зал</a></div>
       </div>
     </div>
@@ -478,12 +478,12 @@ footer .logo{color:var(--fg)}
         <p>Цена зависит от дня недели, количества гостей и формата. Точную сумму под ваш праздник скажем по телефону.</p>
       </div>
       <div class="prices">
-        <div class="price reveal"><span class="eyebrow" style="color:var(--muted)">Дом · будни</span><div class="num">70 000 <small>₸</small></div><p>За один дом. Цена одинаковая для Охотничьего, Белого и Деревянного.</p></div>
-        <div class="price hot reveal"><span class="eyebrow">Дом · выходные</span><div class="num">120–150 000 <small>₸</small></div><p>За один дом в выходные и праздники. Лучше бронировать заранее.</p></div>
-        <div class="price reveal"><span class="eyebrow" style="color:var(--muted)">Банкетный зал</span><div class="num">100–150 000 <small>₸</small></div><p>Аренда зала до 70 гостей.</p></div>
+        <div class="price reveal"><span class="eyebrow" style="color:var(--muted)">Дом · будни</span><div class="num"><span data-cms="price_weekday">70 000</span> <small>₸</small></div><p data-cms="price_weekday_note">За один дом. Цена одинаковая для Охотничьего, Белого и Деревянного.</p></div>
+        <div class="price hot reveal"><span class="eyebrow">Дом · выходные</span><div class="num"><span data-cms="price_weekend">120–150 000</span> <small>₸</small></div><p data-cms="price_weekend_note">За один дом в выходные и праздники. Лучше бронировать заранее.</p></div>
+        <div class="price reveal"><span class="eyebrow" style="color:var(--muted)">Банкетный зал</span><div class="num"><span data-cms="price_hall">100–150 000</span> <small>₸</small></div><p data-cms="price_hall_note">Аренда зала до 70 гостей.</p></div>
       </div>
       <div class="extra reveal">
-        <div><span class="eyebrow">Под ключ, за доплату</span><p>Кухня и повар, официанты, ведущий, музыка, украшение зала. Скажите, что нужно, и посчитаем.</p></div>
+        <div><span class="eyebrow">Под ключ, за доплату</span><p data-cms="turnkey">Кухня и повар, официанты, ведущий, музыка, украшение зала. Скажите, что нужно, и посчитаем.</p></div>
         <a class="btn btn-ghost" href="#book">Обсудить праздник</a>
       </div>
       <div class="notes reveal">
@@ -540,9 +540,9 @@ footer .logo{color:var(--fg)}
         </div>
         <aside class="contacts reveal" aria-label="Телефоны">
           <span class="eyebrow">Позвонить</span>
-          <div class="tel"><div><span class="n">+7 702 908 15 09</span><small>звонки и WhatsApp Business</small></div><button class="copy" data-copy="+77029081509">Копировать</button></div>
-          <div class="tel"><div><span class="n">+7 701 388 17 16</span><small>бронирование</small></div><button class="copy" data-copy="+77013881716">Копировать</button></div>
-          <div class="tel"><div><span class="n">+7 702 651 88 34</span><small>звонки</small></div><button class="copy" data-copy="+77026518834">Копировать</button></div>
+          <div class="tel"><div><span class="n" data-cms="phone1">+7 702 908 15 09</span><small>звонки и WhatsApp Business</small></div><button class="copy" data-copy="+77029081509" data-cms-copy="phone1">Копировать</button></div>
+          <div class="tel"><div><span class="n" data-cms="phone2">+7 701 388 17 16</span><small>бронирование</small></div><button class="copy" data-copy="+77013881716" data-cms-copy="phone2">Копировать</button></div>
+          <div class="tel"><div><span class="n" data-cms="phone3">+7 702 651 88 34</span><small>звонки</small></div><button class="copy" data-copy="+77026518834" data-cms-copy="phone3">Копировать</button></div>
           <p style="color:var(--muted);font-size:15px">Отвечаем круглосуточно. Не дозвонились? Напишите в WhatsApp, перезвоним.</p>
         </aside>
       </div>
@@ -552,7 +552,7 @@ footer .logo{color:var(--fg)}
   <section id="where" style="padding-top:0">
     <div class="wrap where">
       <div class="mapcard reveal">
-        <img src="img/birch.jpg" alt="Берёзовая аллея на территории" loading="lazy">
+        <img src="img/birch.jpg" data-cms-img="t_birch" alt="Берёзовая аллея на территории" loading="lazy">
         <span class="eyebrow">Как доехать</span>
         <span class="addr">Шоссе Алаш, 138/1</span>
         <span style="color:var(--muted);font-size:14px">Астана, район Байконыр</span>
@@ -592,7 +592,7 @@ footer .logo{color:var(--fg)}
   <div class="wrap">
     <span class="logo">Очаг</span>
     <span>Шоссе Алаш, 138/1 · Астана · круглосуточно</span>
-    <span>+7 702 908 15 09 · +7 701 388 17 16 · +7 702 651 88 34</span>
+    <span data-cms-phones>+7 702 908 15 09 · +7 701 388 17 16 · +7 702 651 88 34</span>
   </div>
 </footer>
 
@@ -606,7 +606,7 @@ footer .logo{color:var(--fg)}
   const io=(el,fn,opts)=>{ if("IntersectionObserver" in window) new IntersectionObserver(es=>es.forEach(e=>fn(e.isIntersecting)),opts||{}).observe(el); };
 
   /* WhatsApp */
-  const WA="77029081509";
+  let WA="77029081509"; window.__setWA=v=>{WA=v;};
   function fmtDate(v){ if(!v) return ""; const [y,m,d]=v.split("-"); return d&&m&&y?`${d}.${m}.${y}`:v; }
   function build(){
     const fmt=(document.querySelector('input[name="fmt"]:checked')||{}).value||"Аренда";
@@ -709,5 +709,23 @@ footer .logo{color:var(--fg)}
 })();
 </script>
 
+<script>
+/* Данные из админки (content/site.json) */
+(function(){
+  fetch("content/site.json?ts="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{
+    if(!d) return;
+    const g=k=>{ for(const s of [d.prices||{},d.contacts||{},d.texts||{},d.photos||{}]) if(s[k]!=null && s[k]!=="") return s[k]; };
+    document.querySelectorAll("[data-cms]").forEach(el=>{ const v=g(el.dataset.cms); if(v!=null) el.textContent=v; });
+    const digits=s=>"+"+String(s).replace(/\D/g,"");
+    document.querySelectorAll("[data-cms-copy]").forEach(el=>{ const v=g(el.dataset.cmsCopy); if(v) el.dataset.copy=digits(v); });
+    const ph=[g("phone1"),g("phone2"),g("phone3")].filter(Boolean);
+    document.querySelectorAll("[data-cms-phones]").forEach(el=>{ if(ph.length) el.textContent=ph.join(" · "); });
+    const wa=g("whatsapp"); if(wa){ const w=String(wa).replace(/\D/g,""); window.__setWA&&window.__setWA(w); const a=document.getElementById("wa"); if(a) a.href="https://wa.me/"+w; }
+    const fix=v=>String(v).replace(/^\//,"");
+    document.querySelectorAll("[data-cms-img]").forEach(el=>{ const v=g(el.dataset.cmsImg); if(v) el.src=fix(v); });
+    document.querySelectorAll("[data-cms-src]").forEach(el=>{ const v=g(el.dataset.cmsSrc); if(v){ el.dataset.src=fix(v); const i=el.querySelector("img"); if(i) i.src=fix(v); } });
+  }).catch(()=>{});
+})();
+</script>
 </body>
 </html>

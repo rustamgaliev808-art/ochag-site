@@ -1,0 +1,35 @@
+{
+  "prices": {
+    "price_weekday": "70 000",
+    "price_weekday_note": "За один дом. Цена одинаковая для Охотничьего, Белого и Деревянного.",
+    "price_weekend": "120–150 000",
+    "price_weekend_note": "За один дом в выходные и праздники. Лучше бронировать заранее.",
+    "price_hall": "100–150 000",
+    "price_hall_note": "Аренда зала до 70 гостей.",
+    "turnkey": "Кухня и повар, официанты, ведущий, музыка, украшение зала. Скажите, что нужно, и посчитаем."
+  },
+  "contacts": {
+    "phone1": "+7 702 908 15 09",
+    "phone2": "+7 701 388 17 16",
+    "phone3": "+7 702 651 88 34",
+    "whatsapp": "+7 702 908 15 09"
+  },
+  "texts": {
+    "ny_text": "Зал с камином и гирляндами, праздничный банкет, Охотничий дом с сауной для тех, кто остаётся до утра. Декабрьские пятницы и субботы разбирают первыми."
+  },
+  "photos": {
+    "hero_fire": "img/fire-hero.jpg",
+    "hh_living": "img/hh-living.jpg",
+    "hh_billiard": "img/hh-billiard.jpg",
+    "hh_bed": "img/hh-bed.jpg",
+    "w_dining": "img/w-dining.jpg",
+    "w_bed1": "img/w-bed1.jpg",
+    "w_bed2": "img/w-bed2.jpg",
+    "wh_bed": "img/wh-bed.jpg",
+    "wh_hall": "img/wh-hall.jpg",
+    "t_birch": "img/birch.jpg",
+    "t_yard": "img/yard.jpg",
+    "t_trees": "img/trees.jpg",
+    "t_hero": "img/hero.jpg"
+  }
+}
