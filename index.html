@@ -17,6 +17,9 @@ img{max-width:100%}
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Зона отдыха «Очаг» в Астане, шоссе Алаш 138/1: три дома посуточно от 70 000 ₸, сауна, бильярд, банкетный зал до 70 гостей, мангалы и казан. Той, корпоративы, дни рождения. Круглосуточно, круглый год.">
 <link rel="canonical" href="https://ochag-astana.asia/">
+<link rel="alternate" hreflang="ru" href="https://ochag-astana.asia/">
+<link rel="alternate" hreflang="kk" href="https://ochag-astana.asia/kk/">
+<link rel="alternate" hreflang="x-default" href="https://ochag-astana.asia/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ochag-astana.asia/">
 <meta property="og:title" content="Очаг — зона отдыха в Астане">
@@ -69,6 +72,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav a:hover{color:var(--fg)}
 @media (max-width:900px){.bar .wrap{flex-wrap:wrap;row-gap:8px;padding-block:10px 0}.nav{order:3;width:100%;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding-bottom:10px;gap:20px}.nav::-webkit-scrollbar{display:none}.nav a{padding-block:4px}}
 
+.bar-end{display:flex;align-items:center;gap:12px}
+.lang{font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--muted);text-decoration:none;padding:6px 4px}
+.lang:hover{color:var(--fg)}
+.pages{display:flex;flex-wrap:wrap;gap:6px 18px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 24px;font:600 15px/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--flame);outline-offset:3px}
@@ -315,7 +322,7 @@ ym(114222479,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
       <a href="#prices">Цены</a>
       <a href="#where">Как доехать</a>
     </nav>
-    <a class="btn btn-fire btn-sm" href="#book">Забронировать</a>
+    <div class="bar-end"><a class="lang" href="/kk/" lang="kk" hreflang="kk">ҚАЗ</a><a class="btn btn-fire btn-sm" href="#book">Забронировать</a></div>
   </div>
 </header>
 
@@ -488,7 +495,7 @@ ym(114222479,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
         <span class="eyebrow">Новогодние корпоративы за городом</span>
         <span class="yr">2027</span>
         <p data-cms="ny_text">Зал с камином и гирляндами, праздничный банкет, Охотничий дом с сауной для тех, кто остаётся до утра. Декабрьские пятницы и субботы разбирают первыми.</p>
-        <div><a class="btn btn-fire" href="#book" data-pick="Банкетный зал">Забронировать зал</a></div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn btn-fire" href="#book" data-pick="Банкетный зал">Забронировать зал</a><a class="btn btn-ghost" data-more href="/novogodnii-korporativ/">Подробнее</a></div>
       </div>
     </div>
   </section>
@@ -615,6 +622,7 @@ ym(114222479,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
   <div class="wrap">
     <span class="logo">Очаг</span>
     <span>Шоссе Алаш, 138/1 · Астана · круглосуточно</span>
+    <span class="pages"><a href="/banketnyi-zal/">Банкетный зал</a><a href="/doma-s-saunoi/">Дома с сауной</a><a href="/novogodnii-korporativ/">Новогодний корпоратив</a></span>
     <span data-cms-phones><a data-goal="call" href="tel:+77029081509">+7 702 908 15 09</a> · <a data-goal="call" href="tel:+77013881716">+7 701 388 17 16</a> · <a data-goal="call" href="tel:+77026518834">+7 702 651 88 34</a></span>
   </div>
 </footer>
