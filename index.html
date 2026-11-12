@@ -9,7 +9,11 @@ body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
 </style>
-<title>Очаг — зона отдыха в Астане: дома посуточно, сауна, банкетный зал до 70 гостей</title>
+<title>Очаг — зона отдыха в Астане: дома, сауна, банкетный зал</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#130F0C">
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Зона отдыха «Очаг» в Астане, шоссе Алаш 138/1: три дома посуточно от 70 000 ₸, сауна, бильярд, банкетный зал до 70 гостей, мангалы и казан. Той, корпоративы, дни рождения. Круглосуточно, круглый год.">
 <link rel="canonical" href="https://ochag-astana.asia/">
@@ -17,9 +21,14 @@ img{max-width:100%}
 <meta property="og:url" content="https://ochag-astana.asia/">
 <meta property="og:title" content="Очаг — зона отдыха в Астане">
 <meta property="og:description" content="Три дома посуточно, сауна, бильярд, банкетный зал до 70 гостей. Шоссе Алаш 138/1. Круглосуточно.">
-<meta property="og:image" content="https://ochag-astana.asia/img/fire-hero.jpg">
+<meta property="og:image" content="https://ochag-astana.asia/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Очаг">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:locale" content="ru_RU">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Очаг, зона отдыха","url":"https://ochag-astana.asia/","image":"https://ochag-astana.asia/img/fire-hero.jpg","description":"Зона отдыха в Астане: три дома посуточно, сауна, бильярд, банкетный зал до 70 гостей.","telephone":["+77029081509","+77013881716","+77026518834"],"address":{"@type":"PostalAddress","streetAddress":"шоссе Алаш, 138/1","addressLocality":"Астана","postalCode":"Z01C1K4","addressCountry":"KZ"},"geo":{"@type":"GeoCoordinates","latitude":51.248381,"longitude":71.586943},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"priceRange":"70 000–150 000 ₸","sameAs":["https://www.instagram.com/zona_otdiha_astana/","https://2gis.kz/astana/firm/70000001032545258"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Очаг, зона отдыха","url":"https://ochag-astana.asia/","image":"https://ochag-astana.asia/img/og.jpg","description":"Зона отдыха в Астане: три дома посуточно, сауна, бильярд, банкетный зал до 70 гостей.","telephone":["+77029081509","+77013881716","+77026518834"],"address":{"@type":"PostalAddress","streetAddress":"шоссе Алаш, 138/1","addressLocality":"Астана","postalCode":"Z01C1K4","addressCountry":"KZ"},"geo":{"@type":"GeoCoordinates","latitude":51.248381,"longitude":71.586943},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"priceRange":"70 000–150 000 ₸","sameAs":["https://www.instagram.com/zona_otdiha_astana/","https://2gis.kz/astana/firm/70000001032545258"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Можно привезти свою еду и напитки?","acceptedAnswer":{"@type":"Answer","text":"Да, с собой можно всё. Мангалы, уголь и дрова есть на месте."}},{"@type":"Question","name":"Можно с ночёвкой?","acceptedAnswer":{"@type":"Answer","text":"Да. В Охотничьем и Белом доме по 6–8 спальных мест, в Деревянном 4–6. Работаем круглосуточно."}},{"@type":"Question","name":"Работаете зимой?","acceptedAnswer":{"@type":"Answer","text":"Да, в любой сезон. Зимой особенно хороши сауна и место у костра."}},{"@type":"Question","name":"Как забронировать дату?","acceptedAnswer":{"@type":"Answer","text":"Напишите в WhatsApp или позвоните. Предоплата закрепляет дату за вами."}},{"@type":"Question","name":"Подойдёт для корпоратива?","acceptedAnswer":{"@type":"Answer","text":"Да. Банкетный зал вмещает до 70 гостей, есть поляна для тимбилдинга. Можно заказать мероприятие под ключ."}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Golos+Text:wght@400;500;600&display=swap">
@@ -58,7 +67,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav{display:flex;gap:22px;font-size:14px}
 .nav a{text-decoration:none;color:var(--muted);transition:color .2s}
 .nav a:hover{color:var(--fg)}
-@media (max-width:900px){.nav{display:none}}
+@media (max-width:900px){.bar .wrap{flex-wrap:wrap;row-gap:8px;padding-block:10px 0}.nav{order:3;width:100%;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding-bottom:10px;gap:20px}.nav::-webkit-scrollbar{display:none}.nav a{padding-block:4px}}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 24px;font:600 15px/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s}
 .btn:active{transform:translateY(1px)}
@@ -81,6 +90,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero .wrap{grid-column:1;grid-row:1;align-self:center;width:100%;max-width:640px;margin-left:auto;margin-right:0;display:grid;gap:26px;padding-block:80px 96px;position:relative;z-index:1}
 .hero h1{font-size:clamp(72px,11vw,170px);line-height:.9;text-shadow:0 0 60px rgba(232,116,58,.45);animation:breathe 4s ease-in-out infinite}
 @keyframes breathe{50%{text-shadow:0 0 90px rgba(247,182,76,.65)}}
+.hero h1 .sub{display:block;margin-top:18px;font-family:var(--body);font-weight:600;font-size:clamp(14px,1.5vw,19px);line-height:1.3;letter-spacing:.28em;text-transform:uppercase;color:var(--flame);text-shadow:none}
 .hero .tag{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--flame)}
 .hero .lead{font-size:clamp(17px,1.6vw,21px);max-width:38ch;opacity:.9}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
@@ -228,7 +238,8 @@ input[type=date]{-webkit-appearance:none;appearance:none;min-height:46px}
 .preview{grid-column:1/-1;font-size:14px;color:var(--muted);background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;white-space:pre-wrap;min-width:0;overflow-wrap:anywhere}
 .contacts{display:grid;gap:14px}
 .tel{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
-.tel .n{font-family:var(--display);font-size:clamp(20px,2.6vw,24px);font-variant-numeric:tabular-nums;user-select:all}
+@media (max-width:540px){.tel{flex-wrap:wrap}}
+.tel .n{white-space:nowrap;text-decoration:none;font-family:var(--display);font-size:clamp(20px,2.6vw,24px);font-variant-numeric:tabular-nums;user-select:all}
 .tel small{display:block;color:var(--muted);font-size:13px}
 .copy{border:1px solid var(--line);background:var(--raise);color:var(--fg);border-radius:999px;padding:8px 14px;font:500 13px var(--body);cursor:pointer;flex:none}
 .copy:hover{border-color:var(--ember)}
@@ -258,8 +269,12 @@ details p{padding:0 0 18px;color:var(--muted)}
 footer{border-top:1px solid var(--line);padding-block:40px;font-size:14px;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:center}
 footer .logo{color:var(--fg)}
+footer a{text-decoration:none;white-space:nowrap}
+.tel-row{display:flex;gap:8px;flex:none}
+.copy.call{background:linear-gradient(180deg,var(--flame),var(--ember));color:#2A1408;border-color:transparent;text-decoration:none;font-weight:600}
 .fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:8;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 @media (min-width:901px){.fab{display:none}}
+@media (max-width:900px){footer{padding-bottom:96px}}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
 
 @media (prefers-reduced-motion:no-preference){
@@ -304,11 +319,11 @@ footer .logo{color:var(--fg)}
       <canvas id="embers" aria-hidden="true"></canvas>
     </div>
     <div class="wrap">
-      <span class="tag">Место, которое объединяет</span>
-      <h1>Очаг</h1>
+      <h1>Очаг<span class="sub">зона отдыха в Астане</span></h1>
       <p class="lead">Зона отдыха под Астаной. Охотничий дом с бильярдом и сауной, банкетный зал с камином, костёр под берёзами. Круглосуточно и круглый год.</p>
       <div class="ctas">
         <a class="btn btn-fire" href="#book">Выбрать дату</a>
+        <a class="btn btn-wa" data-wa="Здравствуйте! Хочу узнать про отдых в «Очаге»." data-goal="whatsapp" href="https://wa.me/77029081509?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D1%82%D0%B4%D1%8B%D1%85%20%D0%B2%20%C2%AB%D0%9E%D1%87%D0%B0%D0%B3%D0%B5%C2%BB." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Написать в WhatsApp</a>
         <a class="btn btn-ghost" href="#film">Смотреть фильм · 30 сек</a>
       </div>
       <div class="facts">
@@ -413,7 +428,7 @@ footer .logo{color:var(--fg)}
         </div>
         <div class="wood-txt">
           <h3>Деревянный дом</h3>
-          <p>Тихий дом для компании поменьше: столовая под деревянными балками с большим столом и мягким диваном, уютные спальни с каменными арками.</p>
+          <p>Тихий дом, где спальных мест поменьше: столовая под деревянными балками с большим столом и мягким диваном, уютные спальни с каменными арками.</p>
           <div class="specs"><span class="chip strong">до 16 гостей</span><span class="chip">4–6 спальных мест</span><span class="chip">мангал и казан</span></div>
           <div><a class="btn btn-ghost" href="#book" data-pick="Деревянный дом">Забронировать дом</a></div>
         </div>
@@ -530,7 +545,7 @@ footer .logo{color:var(--fg)}
             <label class="full">Повод и пожелания<textarea id="f-note" name="note" placeholder="День рождения, нужна сауна к 18:00"></textarea></label>
             <div class="preview full" id="pv" aria-live="polite"></div>
             <div class="full" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-              <a class="btn btn-wa" id="wa" href="https://wa.me/77029081509" target="_blank" rel="noopener">
+              <a class="btn btn-wa" id="wa" data-goal="whatsapp_form" href="https://wa.me/77029081509" target="_blank" rel="noopener">
                 <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
                 Отправить в WhatsApp
               </a>
@@ -540,9 +555,9 @@ footer .logo{color:var(--fg)}
         </div>
         <aside class="contacts reveal" aria-label="Телефоны">
           <span class="eyebrow">Позвонить</span>
-          <div class="tel"><div><span class="n" data-cms="phone1">+7 702 908 15 09</span><small>звонки и WhatsApp Business</small></div><button class="copy" data-copy="+77029081509" data-cms-copy="phone1">Копировать</button></div>
-          <div class="tel"><div><span class="n" data-cms="phone2">+7 701 388 17 16</span><small>бронирование</small></div><button class="copy" data-copy="+77013881716" data-cms-copy="phone2">Копировать</button></div>
-          <div class="tel"><div><span class="n" data-cms="phone3">+7 702 651 88 34</span><small>звонки</small></div><button class="copy" data-copy="+77026518834" data-cms-copy="phone3">Копировать</button></div>
+          <div class="tel"><div><a class="n" data-cms="phone1" data-cms-tel="phone1" data-goal="call" href="tel:+77029081509">+7 702 908 15 09</a><small>звонки и WhatsApp Business</small></div><span class="tel-row"><a class="copy call" data-cms-tel="phone1" data-goal="call" href="tel:+77029081509">Позвонить</a><button class="copy" data-copy="+77029081509" data-cms-copy="phone1" aria-label="Копировать номер">Копия</button></span></div>
+          <div class="tel"><div><a class="n" data-cms="phone2" data-cms-tel="phone2" data-goal="call" href="tel:+77013881716">+7 701 388 17 16</a><small>бронирование</small></div><span class="tel-row"><a class="copy call" data-cms-tel="phone2" data-goal="call" href="tel:+77013881716">Позвонить</a><button class="copy" data-copy="+77013881716" data-cms-copy="phone2" aria-label="Копировать номер">Копия</button></span></div>
+          <div class="tel"><div><a class="n" data-cms="phone3" data-cms-tel="phone3" data-goal="call" href="tel:+77026518834">+7 702 651 88 34</a><small>звонки</small></div><span class="tel-row"><a class="copy call" data-cms-tel="phone3" data-goal="call" href="tel:+77026518834">Позвонить</a><button class="copy" data-copy="+77026518834" data-cms-copy="phone3" aria-label="Копировать номер">Копия</button></span></div>
           <p style="color:var(--muted);font-size:15px">Отвечаем круглосуточно. Не дозвонились? Напишите в WhatsApp, перезвоним.</p>
         </aside>
       </div>
@@ -592,11 +607,11 @@ footer .logo{color:var(--fg)}
   <div class="wrap">
     <span class="logo">Очаг</span>
     <span>Шоссе Алаш, 138/1 · Астана · круглосуточно</span>
-    <span data-cms-phones>+7 702 908 15 09 · +7 701 388 17 16 · +7 702 651 88 34</span>
+    <span data-cms-phones><a data-goal="call" href="tel:+77029081509">+7 702 908 15 09</a> · <a data-goal="call" href="tel:+77013881716">+7 701 388 17 16</a> · <a data-goal="call" href="tel:+77026518834">+7 702 651 88 34</a></span>
   </div>
 </footer>
 
-<a class="btn btn-fire fab" href="#book">Бронь</a>
+<a class="btn btn-wa fab" data-wa="Здравствуйте! Хочу узнать про отдых в «Очаге»." data-goal="whatsapp" href="https://wa.me/77029081509?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D1%82%D0%B4%D1%8B%D1%85%20%D0%B2%20%C2%AB%D0%9E%D1%87%D0%B0%D0%B3%D0%B5%C2%BB." target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
 <div class="toast" id="toast" hidden></div>
 
 <script>
@@ -606,7 +621,9 @@ footer .logo{color:var(--fg)}
   const io=(el,fn,opts)=>{ if("IntersectionObserver" in window) new IntersectionObserver(es=>es.forEach(e=>fn(e.isIntersecting)),opts||{}).observe(el); };
 
   /* WhatsApp */
-  let WA="77029081509"; window.__setWA=v=>{WA=v;};
+  let WA="77029081509";
+  function waLinks(){ document.querySelectorAll("a[data-wa]").forEach(a=>a.href="https://wa.me/"+WA+"?text="+encodeURIComponent(a.dataset.wa)); }
+  window.__setWA=v=>{WA=v; waLinks(); update();};
   function fmtDate(v){ if(!v) return ""; const [y,m,d]=v.split("-"); return d&&m&&y?`${d}.${m}.${y}`:v; }
   function build(){
     const fmt=(document.querySelector('input[name="fmt"]:checked')||{}).value||"Аренда";
@@ -623,7 +640,10 @@ footer .logo{color:var(--fg)}
   document.querySelectorAll('input[name="fmt"]').forEach(r=>r.addEventListener("change",update));
   $("f").addEventListener("submit",e=>e.preventDefault());
   document.querySelectorAll("[data-pick]").forEach(a=>a.addEventListener("click",()=>{ $("f-place").value=a.dataset.pick; update(); }));
+  (function(){ const t=new Date(); t.setMinutes(t.getMinutes()-t.getTimezoneOffset()); $("f-date").min=t.toISOString().slice(0,10); })();
   update();
+  /* Цели для счётчиков: звонок и WhatsApp */
+  document.addEventListener("click",e=>{ const a=e.target.closest("[data-goal]"); if(!a) return; const g=a.dataset.goal; try{ if(window.ym&&window.__YM) ym(window.__YM,"reachGoal",g); if(window.gtag) gtag("event",g); }catch(_){} });
   let tt; function toast(s){ const el=$("toast"); el.textContent=s; el.hidden=false; clearTimeout(tt); tt=setTimeout(()=>el.hidden=true,1800); }
   async function copy(text,ok){ try{ await navigator.clipboard.writeText(text); toast(ok); }catch(e){ toast("Выделите текст и скопируйте вручную"); } }
   document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copy(b.dataset.copy,"Номер скопирован")));
@@ -719,8 +739,9 @@ footer .logo{color:var(--fg)}
     const digits=s=>"+"+String(s).replace(/\D/g,"");
     document.querySelectorAll("[data-cms-copy]").forEach(el=>{ const v=g(el.dataset.cmsCopy); if(v) el.dataset.copy=digits(v); });
     const ph=[g("phone1"),g("phone2"),g("phone3")].filter(Boolean);
-    document.querySelectorAll("[data-cms-phones]").forEach(el=>{ if(ph.length) el.textContent=ph.join(" · "); });
-    const wa=g("whatsapp"); if(wa){ const w=String(wa).replace(/\D/g,""); window.__setWA&&window.__setWA(w); const a=document.getElementById("wa"); if(a) a.href="https://wa.me/"+w; }
+    document.querySelectorAll("[data-cms-phones]").forEach(el=>{ if(!ph.length) return; el.textContent=""; ph.forEach((n,i)=>{ if(i) el.append(" · "); const a=document.createElement("a"); a.href="tel:"+digits(n); a.dataset.goal="call"; a.textContent=n; el.append(a); }); });
+    const wa=g("whatsapp"); if(wa){ const w=String(wa).replace(/\D/g,""); window.__setWA&&window.__setWA(w); }
+    document.querySelectorAll("[data-cms-tel]").forEach(el=>{ const v=g(el.dataset.cmsTel); if(v) el.href="tel:"+digits(v); });
     const fix=v=>String(v).replace(/^\//,"");
     document.querySelectorAll("[data-cms-img]").forEach(el=>{ const v=g(el.dataset.cmsImg); if(v) el.src=fix(v); });
     document.querySelectorAll("[data-cms-src]").forEach(el=>{ const v=g(el.dataset.cmsSrc); if(v){ el.dataset.src=fix(v); const i=el.querySelector("img"); if(i) i.src=fix(v); } });
