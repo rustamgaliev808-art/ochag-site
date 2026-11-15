@@ -171,6 +171,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .ny .wrap{width:100%;display:grid;gap:18px;padding-block:96px}
 .ny .yr{font-family:var(--display);font-size:clamp(84px,14vw,170px);line-height:.85;background:linear-gradient(180deg,#FFE3A6,var(--flame) 45%,var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 30px rgba(247,182,76,.35))}
 .ny p{opacity:.9;max-width:46ch;font-size:17px}
+.ny-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.ny-chips li{padding:8px 14px;border:1px solid rgba(247,182,76,.45);border-radius:999px;font-size:14px;background:rgba(19,15,12,.55)}.ny-chips b{color:var(--flame)}
+.menu-pk{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.menu-pk .price ul{margin:12px 0 0;padding-left:18px;display:grid;gap:6px;font-size:15px;opacity:.92}.menu-pk .gift{display:inline-block;margin-top:12px;padding:6px 12px;border-radius:999px;background:var(--ember);color:#fff;font-size:14px;font-weight:600}
 @media (max-width:760px){.ny::after{background:linear-gradient(0deg,rgba(19,15,12,.95) 0,rgba(19,15,12,.82) 60%,rgba(19,15,12,.5)),linear-gradient(180deg,var(--bg),transparent 20%)}}
 
 /* Prices */
